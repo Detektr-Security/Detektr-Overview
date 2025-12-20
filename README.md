@@ -46,13 +46,13 @@ The goal is **confidence backed by evidence**.
 
 ## What Detektr Is Not
 
-Detektr is not:
-- A traditional malware sandbox clone
-- A static code scanner
-- A replacement for EDR or SIEM
-- A one-time assessment tool
+Detektr is intentionally not:
+- A static analysis or SAST replacement
+- A vulnerability scanner producing theoretical findings
+- A compliance reporting tool
+- A traditional malware sandbox focused only on reverse engineering
 
-Detektr is built to complement existing security stacks by validating them under controlled, repeatable attack conditions.
+Detektr focuses on behavioral evidence, execution context, and validation of security assumptions inside real environments.
 
 ---
 
