@@ -2,9 +2,9 @@
 
 Detektr exists to answer a simple but uncomfortable question:
 
-**Does your security actually work under real attack conditions?**
+**Does your security actually work under real execution and attack conditions?**
 
-Most security programs operate on assumptions, point-in-time tests, and indirect signals. Detektr is built to replace assumption with evidence.
+Most security programs operate on assumptions, point-in-time tests, and indirect signals. Detektr is built to replace assumption with **evidence**, and confidence with **proof**.
 
 ---
 
@@ -14,12 +14,19 @@ Security tooling has grown broader, faster, and louder, but not necessarily more
 
 - Static analysis reports what *might* be risky
 - Scanners report what *might* be vulnerable
-- Penetration tests capture what *was* exploitable at a moment in time
+- Penetration tests show what *was* exploitable at a moment in time
 - Detection tools often assume the breach has already occurred
 
-What is missing is **continuous, runtime validation**.
+What is missing is **continuous, execution-aware validation**.
 
-Teams are left guessing whether controls, detections, and mitigations actually hold up when software executes in the real world.
+Teams are left guessing:
+- Whether controls actually trigger under real behavior
+- Whether detections fire when execution matters
+- Whether mitigations stop behavior or merely silence findings
+- Whether results are trustworthy, repeatable, and explainable
+
+This gap is not a tooling problem.  
+It is a **decision integrity problem**.
 
 ---
 
@@ -27,13 +34,30 @@ Teams are left guessing whether controls, detections, and mitigations actually h
 
 **Security claims without runtime evidence are incomplete.**
 
-Detektr is built on the belief that security posture should be validated the same way modern systems are built:
+Detektr is built on the belief that security posture should be validated the same way modern systems are built and operated:
 
 - Through execution, not inspection
 - Through evidence, not inference
-- Through repeatable workflows, not one-off tests
+- Through repeatable decisions, not one-off tests
+- Through explicit assumptions, not implicit trust
 
-If a control, detection, or mitigation cannot be exercised and observed, it cannot be trusted.
+If a control, detection, or mitigation cannot be exercised, observed, and reasoned about under execution, it cannot be fully trusted.
+
+---
+
+## Execution-First, Deterministic by Design
+
+Detektr treats runtime execution as the source of truth.
+
+By executing artifacts and workflows in controlled, short-lived environments and capturing structured telemetry, Detektr enables teams to reason about **what actually happened**, not what was expected to happen.
+
+Just as importantly, Detektr enforces:
+- Deterministic outcomes for identical inputs
+- Explicit handling of uncertainty and partial coverage
+- Clear distinction between failure, unknowns, and unsupported cases
+- Traceable decision lineage over time
+
+This ensures that security decisions remain explainable, replayable, and defensible as systems evolve.
 
 ---
 
@@ -43,15 +67,15 @@ If a control, detection, or mitigation cannot be exercised and observed, it cann
 
 Detektr applies shift-left **to runtime behavior itself**.
 
-By detonating artifacts in short-lived environments and capturing rich execution telemetry, Detektr allows teams to validate security *before* production, without relying solely on theoretical analysis.
+Instead of relying solely on theoretical analysis, Detektr allows teams to validate execution behavior *before* production, while preserving the realism required to trust the results.
 
-This is shift-left security grounded in runtime reality.
+This is shift-left security grounded in **runtime reality**, not abstract models.
 
 ---
 
 ## Evidence Over Alerts
 
-Detektr is not designed to generate more alerts.
+Detektr is not designed to generate more alerts or noise.
 
 It is designed to generate **evidence**:
 
@@ -59,9 +83,9 @@ It is designed to generate **evidence**:
 - What changed
 - What communicated
 - What persisted
-- What failed or succeeded
+- What failed, succeeded, or remained uncertain
 
-This evidence can then be explored, queried, and validated by humans and automation alike.
+This evidence can be queried, validated, replayed, and audited by both humans and automation, without relying on opaque heuristics or implied confidence.
 
 ---
 
@@ -70,33 +94,37 @@ This evidence can then be explored, queried, and validated by humans and automat
 Detektr is built for teams who:
 
 - Ship software continuously
-- Treat security as part of engineering
-- Build or validate detection logic
-- Care about whether controls actually work
+- Treat security as an engineering discipline
+- Build, test, or validate detection logic
+- Care about whether controls actually work in practice
 
-It is not a compliance checklist.
-It is not a passive monitoring tool.
-It is an execution-first validation platform.
+It is not a compliance checklist.  
+It is not a passive monitoring system.  
+It is an execution-first validation engine.
 
 ---
 
 ## Where This Is Going
 
-Detektr is intentionally being built in stages.
+Detektr is intentionally built in stages.
 
-The focus today is correctness, evidence, and foundational workflows.
-Scale, integrations, and expansion come later.
+The focus today is:
+- correctness over speed
+- evidence over coverage claims
+- integrity over surface area
 
-This repository exists to publicly document the **why**, not the **how**.
+Scale, integrations, and broader platform capabilities come only after the foundations are provably sound.
 
-The engine, architecture, and implementation remain private while the product matures.
+This repository exists to document the **why**, not the **how**.
+
+The engine, architecture, and implementation remain private while the system matures to its intended standard.
 
 ---
 
 ## Final Thought
 
-Security should not rely on hope, checklists, or outdated assumptions.
+Security should not rely on hope, checklists, or inherited assumptions.
 
-If you cannot prove that your security holds up under execution, you do not actually know your security posture.
+If you cannot explain *why* a security decision is valid under execution, you do not truly know your security posture.
 
-Detektr exists to make that proof possible.
+Detektr exists to make that explanation possible.
